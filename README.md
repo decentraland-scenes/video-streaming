@@ -69,7 +69,7 @@ For $5 per month - it should be able to support up to 50 viewers
 * You can set the secret under auth - set publish to true and then set your secret: thatsasecretthatsgoingtobeusedlateron (we'll come back to this later once we setup the stream)
 * Ctrl + x to exit editor; save with 'y'; enter to accept the file name
 * Still within the Node-Media-Directory run to install all the necessary packages: ```$ npm install```
-* We still need to install ffmpeg and to do that run: $ apt install ffmpeg
+* We still need to install ffmpeg and to do that run: ```$ apt install ffmpeg```
 * Say yes to all the options
 
 
