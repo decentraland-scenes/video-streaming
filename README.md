@@ -72,6 +72,13 @@ For $5 per month - it should be able to support up to 50 viewers
 * We still need to install ffmpeg and to do that run: ```$ apt install ffmpeg```
 * Say yes to all the options
 
+## Start the application
 
+* In the command line: ```$ pm2 start app.js```
+* You can check applications that were started with pm2 by running: ```$ pm2 ls```
+* If you run into any issues like the status showing an "error" then you can run: ```$ pm2 log 0``` (0 being the process id)
+* You can stop the process by running: ```$ pm2 stop 0``` (again 0 being the process id)
+* You can start the process again by running: ```$ pm2 start 0```
+* You can restart the process by running: ```$ pm2 restart 0```
 
 
