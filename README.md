@@ -81,4 +81,11 @@ For $5 per month - it should be able to support up to 50 viewers
 * You can start the process again by running: ```$ pm2 start 0```
 * You can restart the process by running: ```$ pm2 restart 0```
 
+## Install nginx and certbot
 
+* To install, run: ```$ apt install nginx certbot```
+* Nginx is used to handle the http video call request from the user and certbot is used to create an SSL certificate for the nginx server - that is what gives you the padlock icon on the address bar in your browser. It is also necessary for CORS
+* The command systemctl is used to see what processes are running and you can run: ```$ systemctl status nginx``` to see if nginx is running or not
+* If it's running then you can try going to the <ip-address>.nip.io url then it should be able to see the nginx is running
+* You also need the nginx plugin for certbot and to install the run: ```$ apt install python-certbox-nginx```
+NOTE: ```$ apt install nginx certbot python-certbox-nginx```
