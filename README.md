@@ -89,3 +89,54 @@ For $5 per month - it should be able to support up to 50 viewers
 * If it's running then you can try going to the <ip-address>.nip.io url then it should be able to see the nginx is running
 * You also need the nginx plugin for certbot and to install the run: ```$ apt install python-certbox-nginx```
 NOTE: ```$ apt install nginx certbot python-certbox-nginx```
+
+### _Tip_
+If you’re ever want to search for a package by name you can run: ```$ apt search nginx certbot``` to see all the packages related to that search query
+
+## Certbot
+
+* To run the certbot: ```$ certbot run --nginx -d <ip-address>.nip.io```
+* Enter your email address so that you will receive an email when the certification is about to expire
+* NOTE: these certificates only last 3 months and will renew automatically - it will also send you an email when it's about to expire
+* Agree to the terms of service to obtain the certification by pressing 'A' key to agree
+* No need to share your email so say 'No' to that
+* It then sends a challenge to the domain you entered to make sure it exists and is pointing to your ip address
+* Next select '2' so that you redirect HTTP traffic to HTTPS
+* Now if you refresh the browser and check the domain <ip-address>.nip.io - you should see a little padlock
+
+## Changing NGINX configuration
+
+* Within the Node-Media-Directory run nano again: ```$ nano /etc/nginx/sites-enabled/default```
+* Scroll down to the HTTPS part, which is the SSL configuration...and in: location / on line 119
+* Replace ```root /var/ww/html;``` with ```root /srv/media;```
+* Add  the following within the braces for ```location /``` to enable CORS: ```proxy_pass https://localhost:8000/;```
+* This tells any traffic that’s going to the domain [ip-address].nip.io to use the port 8000
+* Ctrl + x to exit editor; save with 'y'; enter to accept the file name
+* Now restart nginx by running: ```$ systemctl restart nginx```
+
+## Running a stream
+ 
+* Download and install OBS from: https://obsproject.com/
+* Open up OBS and go into settings > stream
+* Set the server to: ```rtmp://<ip-address>.nip.io/live/ ```
+* The ```/live``` part of the URL can be found in the app.js under the trans option: ```app: 'live'```
+* https://en.wikipedia.org/wiki/Real-Time_Messaging_Protocol
+* Set the stream key to anything you want - use the name of the stream perhaps...
+* In our case we will be using the Stream Key: ```test```
+* Remember we set the auth in the app.js to publish: true along with a secret - this is where we will be needing it
+* If we try to connect now then it won't work - to connect you click on the "start streaming" button
+* We can go back to the server terminal and run to check if the stream is working: ```$ pm2 log 0 -f```
+* And it should show up as Unauthorized because we haven't added the key yet
+* To create the stream key we need to copy the secret from the app.js file and create a md5 hash of it that includes the ```/live/<name of stream>-<unix timestamp you want it to last until>-<copy of key from app.js>```
+* https://www.md5hashgenerator.com/
+* https://www.unixtimestamp.com/
+* So in our case it would be ```/live/test-2620857302-thatsasecretthatsgoingtobeusedlateron```
+* The result of the md5 hash should be: ```4cb8c5aa6d6f341b6d1d915956ebf459```
+* Now back in OBS in settings > stream
+* Our stream key is going to be: ```<name of stream>?sign=<unix timestamp you want it to last until>-<md5 hash of the secret>```
+* So in our case that would be: ```test?sign=2620857302-4cb8c5aa6d6f341b6d1d915956ebf459```
+* Now apply those changes and hit the "start streaming" button and it should be working
+* And if you run: ```$ pm2 log 0 -f``` in the server terminal again it will say it's published - it will say rtmp connect, rtmp play, rtmp publish
+* Also in OBS it will say it's "live"
+* Now run: ```$ mpv https://68-183-70-239.nip.io/live/test/index.m3u8``` and you should see the stream
+* This ```https://68-183-70-239.nip.io/live/test/index.m3u8``` link is what you use in your Decentraland scene
