@@ -27,7 +27,7 @@ For $5 per month - it should be able to support up to 50 viewers
 ## Domain Name
 
 * Go to nip.io, which will allow us to transfer an ip address to a domain name for free
-* Our domain name will have the postfix nip.io and the ip address will be with dashes instead of periods so e.g. if we have an IP address of 138.68.166.247 then it will become 138-68-166-247.nip.io
+* Our domain name will have the postfix nip.io and the ip address will be with dashes instead of periods so e.g. if we have an IP address of ```138.68.166.247``` then it will become ```138-68-166-247.nip.io```
 
 ## Connect to the server
 
