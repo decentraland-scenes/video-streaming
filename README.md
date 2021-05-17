@@ -61,7 +61,7 @@ For $5 per month - it should be able to support up to 50 viewers
 * Ctrl + K to delete...delete the ssl stuff within the rtmp endpoint 
 * Comment out the https option
 * Make a note of the port number under http option, which should be 8000 
-* Make sure that under the http option: allow_origin: '*',
+* Make sure that under the http option: ```allow_origin: '*',```
 * There are a bunch of changes to the app.js we need to do...
 * Change the ```mediaroot: '/srv/media'``` - this is where we put files that's being created and or used by programs 
 * We're going to add another option called trans, which is for transcoding - it's used to transform the rtmp input into HLS output so that it can play in Decentraland
