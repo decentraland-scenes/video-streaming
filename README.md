@@ -8,7 +8,7 @@ At Decentraland we use Amazon Web Services but Digital Ocean has a nice UI and i
 
 For $5 per month - it should be able to support up to 50 viewers
 
-50 viewers - more than 50 viewers. Use another service
+50 viewers - If you're going to have more than 50 viewers then use another service...
 
 ## Digital Ocean 
 
