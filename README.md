@@ -61,31 +61,31 @@ For $5 per month - it should be able to support up to 50 viewers
 * Nano is a basic text editor
 * App.js has all the configuration you need for running a stream
 * Ctrl + K to delete...delete the ssl stuff within the rtmp endpoint 
-* Comment out the https option
+* Comment out the https option...
 * Make a note of the port number under http option, which should be 8000 
 * Make sure that under the http option: ```allow_origin: '*',```
 * There are a bunch of changes to the app.js we need to do...
 * Change the ```mediaroot: '/srv/media'``` - this is where we put files that's being created and or used by programs 
 * We're going to add another option called trans, which is for transcoding - it's used to transform the rtmp input into HLS output so that it can play in Decentraland:
-    ```ts
-    trans: {
-      ffmpeg: '/usr/bin/ffmpeg',
-      tasks: [
-        {
-          app: 'live',
-          mp4: true,
-          mp4Flags: '[movflags=faststart]',
-          hls: true,
-          hlsFlags: '[hls_time=2:hls_list_size=3]', //'hls_flags=delete_segments]',
-          dash: true,
-          dashFlags: '[f=dash:window_size=3:extra_window_size=5]'
-        }
-      ]
-    },
+```ts
+  trans: {
+    ffmpeg: '/usr/bin/ffmpeg',
+    tasks: [
+      {
+        app: 'live',
+        mp4: true,
+        mp4Flags: '[movflags=faststart]',
+        hls: true,
+        hlsFlags: '[hls_time=2:hls_list_size=3]', //'hls_flags=delete_segments]',
+        dash: true,
+        dashFlags: '[f=dash:window_size=3:extra_window_size=5]'
+      }
+    ]
+  },
 ```
 * For that we're going to use a program called ffmpeg, which is for processing video, audio, and other multimedia files and streams.
 * You can set the secret under auth - set publish to true and then set your secret: thatsasecretthatsgoingtobeusedlateron (we'll come back to this later once we setup the stream)
-* Ctrl + x to exit editor; save with 'y'; enter to accept the file name
+* Ctrl + X to exit editor; save with 'y'; enter to accept the file name
 * We still need to install ffmpeg and to do that run: ```$ apt install ffmpeg```
 * Say yes to all the options
 
@@ -104,7 +104,7 @@ For $5 per month - it should be able to support up to 50 viewers
 * Nginx is used to handle the http video call request from the user and certbot is used to create an SSL certificate for the nginx server - that is what gives you the padlock icon on the address bar in your browser. It is also necessary for CORS
 * The command systemctl is used to see what processes are running and you can run: ```$ systemctl status nginx``` to see if nginx is running or not
 * If it's running then you can try going to the <ip-address>.nip.io url then it should be able to see the nginx is running
-* You also need the nginx plugin for certbot and to install the run: ```$ apt install python-certbox-nginx```
+* You also need the nginx plugin for certbot and to install the run: ```$ apt install python-certbot-nginx```
 NOTE: ```$ apt install nginx certbot python-certbox-nginx```
 
 ### _Tip_
