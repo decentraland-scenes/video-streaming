@@ -49,14 +49,15 @@ For $5 per month - it should be able to support up to 50 viewers
 * And the end of the NVM installation copy, paste and run the last 3 lines into the terminal - alternatively you can close and open the terminal and it would load NVM by default when you connect
 * Now we can run: ```$ nvm install 14``` - we're install nodejs version 14 here
 * Next we'll install Node-Media-Server, this is the server we will use to stream and you can get it from: https://github.com/illuspas/Node-Media-Server
-* Just clone the Node-Media-Server repo
+* Just clone the Node-Media-Server repo: ```$ git clone https://github.com/illuspas/Node-Media-Server.git```
 * Then change into the Node-Media-Server directory: ```$ cd Node-Media-Server/```
+* Now install all the necessary packages: ```$ npm install```
 * Next we'll do a global installation of pm2 (https://www.npmjs.com/package/pm2) by running: ```$ npm i -g pm2```
 * Pm2 is a process manager that allows you to keep a program running even when you quit the terminal as normally when you quit the terminal it closes the applications that were ran from it
 
 ## Editing files
 
-* Within the Node-Media-Directory run: $ nano app.js to edit the app.js file
+* Within the Node-Media-Directory run: ```$ nano app.js``` to edit the app.js file
 * Nano is a basic text editor
 * App.js has all the configuration you need for running a stream
 * Ctrl + K to delete...delete the ssl stuff within the rtmp endpoint 
@@ -65,11 +66,26 @@ For $5 per month - it should be able to support up to 50 viewers
 * Make sure that under the http option: ```allow_origin: '*',```
 * There are a bunch of changes to the app.js we need to do...
 * Change the ```mediaroot: '/srv/media'``` - this is where we put files that's being created and or used by programs 
-* We're going to add another option called trans, which is for transcoding - it's used to transform the rtmp input into HLS output so that it can play in Decentraland
+* We're going to add another option called trans, which is for transcoding - it's used to transform the rtmp input into HLS output so that it can play in Decentraland:
+    ```ts
+    trans: {
+      ffmpeg: '/usr/bin/ffmpeg',
+      tasks: [
+        {
+          app: 'live',
+          mp4: true,
+          mp4Flags: '[movflags=faststart]',
+          hls: true,
+          hlsFlags: '[hls_time=2:hls_list_size=3]', //'hls_flags=delete_segments]',
+          dash: true,
+          dashFlags: '[f=dash:window_size=3:extra_window_size=5]'
+        }
+      ]
+    },
+```
 * For that we're going to use a program called ffmpeg, which is for processing video, audio, and other multimedia files and streams.
 * You can set the secret under auth - set publish to true and then set your secret: thatsasecretthatsgoingtobeusedlateron (we'll come back to this later once we setup the stream)
 * Ctrl + x to exit editor; save with 'y'; enter to accept the file name
-* Still within the Node-Media-Directory run to install all the necessary packages: ```$ npm install```
 * We still need to install ffmpeg and to do that run: ```$ apt install ffmpeg```
 * Say yes to all the options
 
