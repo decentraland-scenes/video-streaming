@@ -127,7 +127,7 @@ If you’re ever want to search for a package by name you can run: ```$ apt sear
 * Scroll down to the HTTPS part, which is the SSL configuration...and in: location / on line 119
 * Replace ```root /var/ww/html;``` with ```root /srv/media;```
 * Add  the following within the braces for ```location /``` to enable CORS: ```proxy_pass https://localhost:8000/;```
-* This tells any traffic that’s going to the domain [ip-address].nip.io to use the port 8000
+* This tells any traffic that’s going to the domain ```<ip-address>.nip.io``` to use the port 8000
 * Ctrl + x to exit editor; save with 'y'; enter to accept the file name
 * Now restart nginx by running: ```$ systemctl restart nginx```
 
@@ -135,7 +135,7 @@ If you’re ever want to search for a package by name you can run: ```$ apt sear
  
 * Download and install OBS from: https://obsproject.com/
 * Open up OBS and go into settings > stream
-* Set the server to: ```rtmp://<ip-address>.nip.io/live/ ```
+* Set the server to: ```rtmp://<ip-address>.nip.io/live/```
 * The ```/live``` part of the URL can be found in the app.js under the trans option: ```app: 'live'```
 * https://en.wikipedia.org/wiki/Real-Time_Messaging_Protocol
 * Set the stream key to anything you want - use the name of the stream perhaps...
