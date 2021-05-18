@@ -33,13 +33,14 @@ For $5 per month - it should be able to support up to 50 viewers
 
 * Use putty: https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
 * Enter the ip address with the port 22
-* Enter root for username
+* Enter ```root``` for username
 * Enter password for when you created the Digital Ocean droplet
 * Once you've logged in...
 
 ## Things to install on 
 
-* Install curl and ```git: $ apt install curl git```
+* First do an update to apt: ```$ apt-get update```
+* Install curl and git: ```$ apt install curl git```
 * Curl is so that we can do a request to a server - it's basically a terminal browser and git is git
 * Say yes to all the questions
 * Install NVM, which is Node Version Manager - copy and paste the command below, which is from their github page: https://github.com/nvm-sh/nvm
