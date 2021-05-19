@@ -1,3 +1,5 @@
+// This is the file from /Node-Media-Server/app.js
+
 const NodeMediaServer = require('./');
 
 const config = {

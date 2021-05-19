@@ -123,7 +123,7 @@ If you’re ever want to search for a package by name you can run: ```$ apt sear
 
 ## Changing NGINX configuration
 
-* Within the Node-Media-Directory run nano again: ```$ nano /etc/nginx/sites-enabled/default```
+* Run nano again on the following: ```$ nano /etc/nginx/sites-enabled/default```
 * Scroll down to the HTTPS part, which is the SSL configuration...and in: location / on line 119
 * Replace ```root /var/ww/html;``` with ```root /srv/media;```
 * Add  the following within the braces for ```location /``` to enable CORS: ```proxy_pass https://localhost:8000/;```
