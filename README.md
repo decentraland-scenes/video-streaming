@@ -158,7 +158,7 @@ This is the cheapest option, but is significantly harder to set up than the othe
 - We still need to install ffmpeg and to do that run: `$ apt install ffmpeg`
 - Say yes to all the options
 
-### Start the application
+## Start the application
 
 - In the command line: `$ pm2 start app.js`
 - You can check applications that were started with pm2 by running: `$ pm2 ls`
@@ -167,7 +167,7 @@ This is the cheapest option, but is significantly harder to set up than the othe
 - You can start the process again by running: `$ pm2 start 0`
 - You can restart the process by running: `$ pm2 restart 0`
 
-### Install nginx and certbot
+## Install nginx and certbot
 
 - To install, run: `$ apt install nginx certbot`
 - Nginx is used to handle the http video call request from the user and certbot is used to create an SSL certificate for the nginx server - that is what gives you the padlock icon on the address bar in your browser. It is also necessary for CORS
@@ -176,11 +176,11 @@ This is the cheapest option, but is significantly harder to set up than the othe
 - You also need the nginx plugin for certbot and to install the run: `$ apt install python-certbot-nginx`
   NOTE: `$ apt install nginx certbot python-certbox-nginx`
 
-#### _Tip_
+### _Tip_
 
 If you’re ever want to search for a package by name you can run: `$ apt search nginx certbot` to see all the packages related to that search query
 
-### Certbot
+## Certbot
 
 - To run the certbot: `$ certbot run --nginx -d <ip-address>.nip.io`
 - Enter your email address so that you will receive an email when the certification is about to expire
@@ -191,9 +191,9 @@ If you’re ever want to search for a package by name you can run: `$ apt search
 - Next select '2' so that you redirect HTTP traffic to HTTPS
 - Now if you refresh the browser and check the domain <ip-address>.nip.io - you should see a little padlock
 
-### Changing NGINX configuration
+## Changing NGINX configuration
 
-- Within the Node-Media-Directory run nano again: `$ nano /etc/nginx/sites-enabled/default`
+- Run nano again on the following: `$ nano /etc/nginx/sites-enabled/default`
 - Scroll down to the HTTPS part, which is the SSL configuration...and in: location / on line 119
 - Replace `root /var/ww/html;` with `root /srv/media;`
 - Add the following within the braces for `location /` to enable CORS: `proxy_pass https://localhost:8000/;`
@@ -201,7 +201,7 @@ If you’re ever want to search for a package by name you can run: `$ apt search
 - Ctrl + x to exit editor; save with 'y'; enter to accept the file name
 - Now restart nginx by running: `$ systemctl restart nginx`
 
-### Running a stream
+## Running a stream
 
 - Download and install OBS from: https://obsproject.com/
 - Open up OBS and go into settings > stream
