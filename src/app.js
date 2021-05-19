@@ -12,7 +12,7 @@ const config = {
   },
   http: {
     port: 8000,
-    mediaroot: 'srv/media',
+    mediaroot: '/srv/media',
     webroot: './www',
     allow_origin: '*',
     api: true
