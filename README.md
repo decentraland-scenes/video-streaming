@@ -92,9 +92,9 @@ This is the simplest option, but doesn't allow for live streaming.
 
 3. Open the video's settings, and select **Advanced**.
 
-4. Pick **Distribution**, and scroll to the bottom to Video file links. Copy one of the links.
+4. Pick **Distribution**, and scroll to the bottom to Video file links. Copy the last one of these links, the one labeled **HTTP live streaming**.
 
-> Note: The **High Def(1080)** option may be too much for some Decentraland users. The lower **High Def** option is recommended instead.
+> Note: The other available links on specific resoltuions often don't work when streamed into Decentraland. Always use the **HTTP Live streaming**. This option adjusts the quality of the video dynamically depending on the player's connection, leading to an optimal result. Note that this link is different from performing a streaming of a live event: players will each see the video from start to finish, without necessarily being in sync with what each other is seeing. 
 
 5. Paste the link into your scene, replacing the placeholder on the `VideoClip` object.
 
