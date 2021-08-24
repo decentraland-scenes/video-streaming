@@ -40,12 +40,6 @@ Learn more about how to build your own scenes in our [documentation](https://doc
 
 The simplest option for streaming video is to use a Vimeo paid account. You can also go for a Vimeo _premium_ account, which is significantly more expensive but enables more options. The other recommended alternative is to set up your own server, using free software but paying for hosting on a platform like Digital Ocean. All these options have pros and cons for different scenarios. You should evaluate what's best for you taking into account your needs, technical skills and budget.
 
-**Vimeo Plus **:
-
-Cons:
-
-- Does not let you stream recorded video
-
 **Vimeo Pro (or higher)**:
 
 Pros:
@@ -88,7 +82,8 @@ Cons:
 
 > Note: For many Decentraland Foundation events, we use Amazon Web Services hosting. This option is more robust, but also more expensive and less friendly to set up.
 
-## Set up Vimeo Plus
+## Set up Vimeo Pro
+
 
 This is the simplest option, but doesn't allow for live streaming.
 
