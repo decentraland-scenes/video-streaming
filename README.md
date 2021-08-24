@@ -40,13 +40,19 @@ Learn more about how to build your own scenes in our [documentation](https://doc
 
 The simplest option for streaming video is to use a Vimeo paid account. You can also go for a Vimeo _premium_ account, which is significantly more expensive but enables more options. The other recommended alternative is to set up your own server, using free software but paying for hosting on a platform like Digital Ocean. All these options have pros and cons for different scenarios. You should evaluate what's best for you taking into account your needs, technical skills and budget.
 
-**Vimeo Plus (or higher)**:
+**Vimeo Plus **:
 
-Pors:
+Cons:
+
+- Does not let you stream recorded video
+
+**Vimeo Pro (or higher)**:
+
+Pros:
 
 - Should be able to support unlimited concurrent users
 - Is extremely easy to set up
-- Costs $7 USD a month
+- Costs $20 USD a month
 - Offers analytics dashboard
 
 Cons:
