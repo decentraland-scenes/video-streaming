@@ -1,3 +1,4 @@
+import { CustomVideoSystem } from './exampleVideoEvents';
 // Base
 const base = new Entity()
 base.addComponent(new GLTFShape("models/baseDarkWithCollider.glb"))
@@ -43,3 +44,5 @@ screenMaterial.emissiveColor = Color3.White()
 screenMaterial.emissiveIntensity = 0.6
 screenMaterial.roughness = 1.0
 screen.addComponent(screenMaterial)
+
+engine.addSystem(new CustomVideoSystem(videoTexture))
