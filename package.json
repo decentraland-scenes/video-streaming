@@ -15,5 +15,10 @@
   "devDependencies": {
     "@dcl/eslint-config": "^1.0.1",
     "decentraland-ecs": "latest"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0",
+    "yarn": "please use npm"
   }
 }
