@@ -1,7 +1,4 @@
 package-lock.json
+*.js
 node_modules
-bin
-*.swp
-*.*~
-export
-
+bin/ 
