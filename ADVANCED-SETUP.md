@@ -123,7 +123,7 @@ Once you've logged in to your server, you can proceed to the next steps.
 
 - The command systemctl is used to see what processes are running and you can run: `$ systemctl status nginx` to see if nginx is running or not
 - Open a browser tab on the address `<ip-address>.nip.io`. In that address you should see some text saying that nginx is running.
-- Install the nginx plugin for certbot, run `$ apt install nginx certbot python3-certbox-nginx`
+- Install the nginx plugin for certbot, run `$ apt install nginx certbot python3-certbot-nginx`
 
 > TIP: To search for a package by name, you can run: `$ apt search nginx certbot` to see a list of all the existing packages that match your search query.
 
