@@ -37,8 +37,9 @@ Learn more about how to build your own scenes in our [documentation](https://doc
 ### _NOTE: These are just brief notes from my meeting with HPrivakos (will tidy up later...)_
 
 ## Choosing a hosting option
+There are a number of options for streaming video. The simplest option is to use a managed hosting provider like [Vimeo](https://vimeo.com/) or [Livepeer Studio](https://livepeer.studio/) where you pay a fee to the provider to manage all the streaming infrastructure. The other recommended alternative is to set up your own server, using free software but paying for hosting on a platform like Digital Ocean. All these options have pros and cons for different scenarios. You should evaluate what's best for you taking into account your needs, technical skills and budget.
 
-The simplest option for streaming video is to use a Vimeo paid account. You can also go for a Vimeo _premium_ account, which is significantly more expensive but enables more options. The other recommended alternative is to set up your own server, using free software but paying for hosting on a platform like Digital Ocean. All these options have pros and cons for different scenarios. You should evaluate what's best for you taking into account your needs, technical skills and budget.
+### Managed hosted
 
 **Vimeo Pro (or higher)**:
 
@@ -66,6 +67,24 @@ Pros:
 Cons:
 
 - Costs $75 usd a month
+
+**Livepeer Studio**:
+
+Pros:
+
+- Easy to set up
+- Free 1000 minutes/month video processing (transcoding and uploading videos)
+- Allows for **live streaming**
+
+Cons:
+- No analytics dashboard
+- Streaming of **pre-loaded videos (VODs)** currently requires using Studio API
+- After 1000 free monthly minutes, costs are calculated as:
+    - $0.005 USD/min for transcoding
+    - $0.015 USD/GB for delivery
+
+
+### Self-hosted
 
 **Set up own server on Digital Ocean**
 
@@ -111,6 +130,21 @@ This is the most powerful option, but is significantly more expensive than the o
 
 ...Additional steps to be confirmed
 -->
+
+## Set up Livepeer Studio
+
+The first step is to create a [Livepeer Studio account](https://livepeer.studio/register).
+
+**Live streaming**
+1. While signed in, go to the [Streams](https://livepeer.studio/dashboard/streams) section
+2. Click the `+ Create stream` button
+3. Give your stream a name in the prompt. Click `Create stream` button when finished.
+4. For broadcasting (via broadcasting software like OBS), use the the `RTMP ingest URL` and `Stream key` found on the newly created stream page. 
+5. For playback in a video player, use the `Playback URL` url.
+
+**Pre-loaded video (VOD) streaming**
+
+*Functionality to upload asset directly in Studio dashboard coming in Q3 2022*
 
 ## Custom Server on Digital Ocean (Advanced)
 
