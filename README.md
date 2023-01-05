@@ -74,11 +74,10 @@ Pros:
 
 - Easy to set up
 - Free 1000 minutes/month video processing (transcoding and uploading videos)
-- Allows for **live streaming**
+- Allows for **live streaming** and **pre-loaded videos**
 
 Cons:
 - No analytics dashboard
-- Streaming of **pre-loaded videos (VODs)** currently requires using Studio API
 - After 1000 free monthly minutes, costs are calculated as:
     - $0.005 USD/min for transcoding
     - $0.015 USD/GB for delivery
@@ -144,7 +143,11 @@ The first step is to create a [Livepeer Studio account](https://livepeer.studio/
 
 **Pre-loaded video (VOD) streaming**
 
-*Functionality to upload asset directly in Studio dashboard coming in Q3 2022*
+1. While signed in, go to the [Assets](https://livepeer.studio/dashboard/assets) section
+2. Click the `+ Upload asset` button
+3. Upload video file by browsing from computer or dragging and dropping into upload box
+4. After video file finishes processing, click uploaded file to get to asset page
+5. Copy the `Playback URL` for playback in a video player
 
 ## Custom Server on Digital Ocean (Advanced)
 
